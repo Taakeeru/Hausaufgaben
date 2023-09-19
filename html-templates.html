@@ -31,7 +31,13 @@
             border-radius: 50%;
             background-color: red;
             padding: 20px;
+            box-shadow: -4px 9px 10px rgba(0, 0, 0,0.4)
         }
+
+        div {
+            margin-bottom: 20px;
+        }
+
     </style>
 
     <script>
@@ -55,25 +61,50 @@
                 `Linux wird nie das meistinstallierte Betriebssystem sein, wenn man bedenkt, wie oft man Windows neu installieren muss!`;
         }
 
+
+        /**
+         * Aufgabe 1 
+         */
+        function joke3() {
+            document.getElementById('joke').innerHTML =
+                `Jedes Programm lässt sich um mindestens eine Anweisung kürzen. Jedes Programm hat mindestens einen Fehler. Durch Induktion können wir schließen: Jedes Programm ist reduzierbar auf eine Anweisung, die nicht funktioniert...`;
+        }
+
+
+        /**
+         * Aufgabe 1 
+         */
+        function joke4() {
+            document.getElementById('joke').innerHTML =
+                `Telefonieren zwei Informatiker. Fragt der eine: "Und, wie ist das Wetter bei euch?" "Caps Lock." "Häh?" "Na, shift ohne Ende..."`;
+        }
+
+
+
         /**
          * Aufgabe 2 
          */
         function addFruit(fruit) {
-            document.getElementById('food').innerHTML += `Frucht hinzugefügt: ${fruit} <br>`;
+            document.getElementById('food').innerHTML += `Frucht hinzugefügt: <b>${fruit}<b> <br>`;
         }
 
         function deleteFruits() {
-            document.getElementById('food').innerHTML = '';
+            document.getElementById('food').innerHTML = ''; // Es greift auf das Element mit der Id "food" ein und ändert den Inhalt in '' was es in anderen Worten leert.
         }
+
+        /**
+         * Aufgabe 2.3 -> "=" = gleich bzw. deklariert den Wert einer Variable, "+=" oder auch "= +" addiert einen Wert.
+         */
 
 
         /**
          * Aufgabe 3 
          */
         function generatedCircle() {
+            
             document.getElementById('generatedHTML').innerHTML = `
             <div class="circle">
-                Kreis    
+                <b>${name}<b>   
             </div>
             `;
         }
@@ -93,10 +124,15 @@
         function sendMessage() {
             let message = document.getElementById('message'); // HTML Element mit ID message wird an die Variable 'message' zugewiesen. 
             let chat = document.getElementById('chat');
+            let inputName = document.getElementById('name').value;
 
-            chat.innerHTML += `
-            <div>Unbekannt: ${message.value}</div>
-            `;
+            if (message.value.length < 1) {
+                alert('Bitte schreibe etwas in das Text-Feld!')
+            } else {
+                chat.innerHTML += `
+                <div><i>${inputName}</i>: ${message.value}</div>
+                `;
+            }
 
             message.value = ''; // Inhalt von Textfeld mit id "message" löschen
         }
@@ -115,6 +151,7 @@
     <button onclick="joke1()">Witz 1</button>
     <button onclick="joke2()">Witz 2</button>
     <button onclick="joke3()">Witz 3</button>
+    <button onclick="joke4()">Witz 4</button>
 
     <div id="joke"></div>
 
@@ -131,6 +168,7 @@
     <div><button onclick="addFruit('Apfel')">Apfel</button>
         <button onclick="addFruit('Banane')">Banane</button>
         <button onclick="addFruit('Clementine')">Clementine</button>
+        <button onclick="addFruit('Drachenfrucht')">Drachenfrucht</button>
     </div>
     <div>
         <button onclick="deleteFruits()">Alles löschen</button>
@@ -157,6 +195,7 @@
 
     <button onclick="setName('Franz')">Franz</button>
     <button onclick="setName('Gundula')">Gundula</button>
+    <button onclick="setName('Henriette')">Henriette</button>
 
 
     <p>
@@ -168,6 +207,7 @@
         <br> 5.5. Wenn das Textfeld mit der ID <code>message</code> leer ist, kann eine Nachricht immernoch gesendet werden. Sorge durch eine If-Abfrage dafür, dass ein Textfeld mit der ID <code>message</code> IMMER ausgefüllt sein muss.<br> <i>Tipp: mit  <code>message.value.length</code> erhälst du die Länge des Textes, der in das Textfeld geschrieben wurde.</i>
     </p>
 
+    <input type="text" id="name" placeholder="Namen eingeben...">
     <input type="text" id="message" placeholder="Nachricht eingeben..."> <button onclick="sendMessage()">Senden</button>
     <div id="chat">
 
