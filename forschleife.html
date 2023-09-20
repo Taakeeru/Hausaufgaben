@@ -26,6 +26,7 @@
             exercise3();
             exercise4();
             exercise5();
+            exercisenew();
             exercise6();
             exercise7();
             exercise8();
@@ -58,17 +59,25 @@
         }
 
         function exercise4() {
-            let list5 = document.getElementById('list5')
+            let list4 = document.getElementById('list4')
 
             for (let i = 10; i >= 0; i--) {
-                list5.innerHTML += `<li>${i}</li>`;
+                list4.innerHTML += `<li>${i}</li>`;
             }
         }
 
         function exercise5() {
-            let list6 = document.getElementById('list6')
+            let list5 = document.getElementById('list5')
 
             for (let i = 0; i < fruits.length; i++) {
+                list5.innerHTML += `<li>${fruits[i]}</li>`;
+            }
+        }
+
+        function exercisenew() {
+            let list6 = document.getElementById('list6')
+
+            for (let i = 4; i >= 0; i--) {
                 list6.innerHTML += `<li>${fruits[i]}</li>`;
             }
         }
